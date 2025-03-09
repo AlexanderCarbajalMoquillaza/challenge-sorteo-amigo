@@ -6,6 +6,7 @@
     --color-button-hover: #e55720;
     --color-text: #444444;
     --color-white: #FFFFFF;
+    --color-alert: #c10606;
 }
 
 /* Estilos generales */
@@ -123,6 +124,12 @@ button {
 
 .button-add:hover {
     background-color: #a1a1a1;
+}
+
+/*Mensaje de alerta*/
+p {
+    color: var(--color-alert);
+    font-family: "Inter", sans-serif;
 }
 
 /* Listas */
