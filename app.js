@@ -1,6 +1,9 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 let friends = [];
 
+//validador para que no se ejecuté más de una vez función friendsDraw
+let runned = false;
+
 function assignTextElement(element, text){
     let elementHTML = document.querySelector(element);
     elementHTML.innerHTML = text;
@@ -38,16 +41,37 @@ function verifyText(){
             console.log(friends);
         }
     }
-
-    // assignTextElement('#listaAmigos',`Lista: ${newItem} `)
 }
 
-function valuesDuplicates(){
-
-}
 function cleanBox() {
     document.querySelector('#amigo').value = '';
 }
+
 function cleanAlert() {
     document.getElementById('mensaje_alert').textContent = null;
+}
+
+function friendsDraw(){
+    if(!runned){
+        let randomName = friends[Math.floor(Math.random() * friends.length)];
+
+        //Obtiene lista desordenada para añadirle una lista ordenada con el nombre sorteado
+        let result = document.getElementById('resultado');
+        let resultItem = document.createElement("li");
+
+        //Agrega el amigo sorteado al elemento creado para ser mostrado en pantalla
+        resultItem.textContent = randomName;
+        result.append('El amigo secreto sorteado es: ',resultItem);
+
+        //Limpia la caja que contiene la lista de amigos
+        cleanListFriends();
+
+        //Una vez ejecutada la funcion, cambia a verdadero para no volver a ejecutarse
+        runned = true;
+        return;
+    }
+}
+
+function cleanListFriends() {
+    document.getElementById('listaAmigos').textContent = null;
 }
