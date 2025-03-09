@@ -66,6 +66,9 @@ function friendsDraw(){
         //Limpia la caja que contiene la lista de amigos
         cleanListFriends();
 
+        //Limpia la caja que contiene alerta previa
+        cleanAlert();
+
         //Una vez ejecutada la funcion, cambia a verdadero para no volver a ejecutarse
         runned = true;
         return;
